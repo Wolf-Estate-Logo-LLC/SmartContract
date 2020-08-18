@@ -1,0 +1,34 @@
+{
+  "name": "@JustLink14/SmartContract",
+  "version": "0.0.1",
+  "description": "Smart contracts and their language abstractions for JustLink",
+  "repository": "https://github.com/JustLink14/SmartContract",
+  "author": "JustLink14 Group",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "setup": "yarn compile",
+    "clean": "tsc -b --clean tsconfig.test.json tsconfig.ethers.json",
+    "pretest": "tsc -b --clean tsconfig.ethers.json",
+    "test": "jest --testTimeout 80000 --forceExit",
+    "test:ci": "./scripts/test_ci",
+    "prepublishOnly": "yarn clean && yarn setup && yarn test:ci && yarn setup"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.8",
+    "@types/node": "^13.9.1",
+    "jest": "^25.1.0",
+    "ts-jest": "^25.2.0",
+    "typescript": "^3.7.5"
+  },
+  "files": [
+    "abi/**/*",
+    "ethers/**/*",
+    "src/**/*",
+    "truffle/**/*",
+    "app.config.json"
+  ],
+  "optionalDependencies": {
+    "@truffle/contract": "^4.2.6"
+  }
+}
